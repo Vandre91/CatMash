@@ -1,18 +1,25 @@
 <template>
-  <div class="cat">
-    <h1>Vote</h1>
-    <h2>For the cutest</h2>
-      <div class= "container">
-        <button v-on:click="Vote(cat_left)"><img v-bind:src="this.cat_left.url"></button>
-        <button v-on:click="Vote(cat_right)"><img v-bind:src="this.cat_right.url"></button>
-      </div>
+<div class="vote">
+  </br>
+  <h1>Vote for the cutest cat</h1>
+  </br>
+  <div class="container">
+	  <div class="row">
+		  <div class="col-md-6 col-sm-4 "><a v-on:click="Vote(cat_left)"><img class="img-responsive" v-bind:src="this.cat_left.url" /></a></div>
+      <div class="col-md-6 col-sm-4 "><a v-on:click="Vote(cat_right)"><img class="img-responsive" v-bind:src="this.cat_right.url" /></a></div>
+    </div>
   </div>
+  </br>
+  <router-link to="/CatStatistic"><h2>See the Statistic</h2></router-link>
+</div>
+  
 </template>
 
 <script>
 import cats from '../assets/Cats.json'
 import axios from "axios"
-
+//<button v-on:click="Vote(cat_left)"><img v-bind:src="this.cat_left.url"></button>
+  //      <button v-on:click="Vote(cat_right)"><img v-bind:src="this.cat_right.url"></button>
 export default {
   name: 'CatMash',
   data () {
@@ -58,4 +65,20 @@ export default {
 }
 </script>
 <style scoped>
+img {
+  width:500px;
+  height:500px;
+  filter: gray;
+  -webkit-filter: grayscale(1); 
+    -webkit-box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
+    margin-bottom:20px;
+}
+
+img:hover {
+  filter: none;
+  -webkit-filter: grayscale(0); 
+ 
+}
 </style>

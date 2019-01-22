@@ -1,13 +1,5 @@
 <template>
   <div id="app">
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="container">
-          <router-link to="/"><a class="brand">Matsh</a></router-link>
-          <router-link to="/CatStatistic"><a class="brand">Statistic</a></router-link>
-        </div>
-      </div>
-    </div>
     <router-view></router-view>
   </div>
 </template>

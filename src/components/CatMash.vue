@@ -18,8 +18,7 @@
 <script>
 import cats from '../assets/Cats.json'
 import axios from "axios"
-//<button v-on:click="Vote(cat_left)"><img v-bind:src="this.cat_left.url"></button>
-  //      <button v-on:click="Vote(cat_right)"><img v-bind:src="this.cat_right.url"></button>
+
 export default {
   name: 'CatMash',
   data () {

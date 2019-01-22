@@ -52,6 +52,7 @@ export default {
   h3.h3{text-align:center;margin:1em;text-transform:capitalize;font-size:1.7em;}
   .product-grid,.product-grid .product-image{overflow:hidden}
   .product-grid{font-family:'Open Sans',sans-serif;text-align:center;position:relative;transition:all .5s ease 0s}
+  .product-grid .product-image a img {width:200px;height:200px;}
   .product-grid .product-image a{display:block}
   .product-grid .product-image img{width:100%;height:auto;transition:all .5s ease 0s}
   .product-grid:hover .product-image img{transform:scale(1.1)}

@@ -48,10 +48,9 @@ app.post('/api/Vote', function(req, res) {
 });
 
 app.get('/api/GetStatistic', function(req, res) {
-    con.query('select * from Cat ORDER BY vote DESC LIMIT 10', function (err, recordset) {
+    con.query('select * from Cat ORDER BY vote DESC LIMIT 100', function (err, recordset) {
         
         if (err) console.log(err)
-        console.log(JSON.stringify(recordset));
         res.send(recordset);
         
     });

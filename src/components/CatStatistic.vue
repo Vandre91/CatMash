@@ -1,9 +1,9 @@
-<template>  
+<template>
   <div class="container">
-    </br>
+    <br>
     <h3 class="h3">The cutest cat</h3>
     <div class="row">
-        <div class="col-md-3 col-sm-6" v-for="i in this.data">
+        <div class="col-md-3 col-sm-6" v-for="i in this.data" :key="i">
             <div class="product-grid">
                 <div class="product-image">
                     <a href="#">
@@ -16,12 +16,13 @@
             </div>
         </div>
     </div>
-    </br>
+    <br>
     <router-link to="/"><h1>Return to the vote</h1></router-link>
-</div>
+  </div>
 </template>
 
 <script>
+/* eslint-disable */
 import axios from "axios"
 
 export default {

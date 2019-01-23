@@ -1,9 +1,10 @@
 /* eslint-disable */
 const express = require('express');
 const mysql = require('mysql');
-const bodyParser = require('body-parser')
-const cats = require('./src/assets/Cats.json')
-const app = express(); 
+const bodyParser = require('body-parser');
+const cats = require('./src/assets/Cats.json');
+const app = express();
+const publicRoot = '/Users/victorandre/Documents/CatMash/catmatsh/dist'
 
 let con = mysql.createConnection({
     host: "localhost",
@@ -32,7 +33,12 @@ function insertVote(e){
     con.query('UPDATE Cat SET vote='+e.vote+' WHERE id= ?',e.id.toString());
 }
 
+app.use(express.static(publicRoot))
 app.use(bodyParser.json())
+
+app.get("/", (req, res, next) => {  
+    res.sendFile("index.html", { root: publicRoot })
+})
 
 app.post('/api/Vote', function(req, res) {
     let product = {};
@@ -57,4 +63,4 @@ app.get('/api/GetStatistic', function(req, res) {
     });
 });
 
-app.listen(8000);
+app.listen(8080);

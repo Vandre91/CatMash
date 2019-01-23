@@ -13,7 +13,7 @@ module.exports = {
     proxyTable: {},
     proxyTable: {
 
-      //"/api": "http://localhost:8000"
+      "/api": "http://localhost:8000"
       
     },
 

@@ -45,15 +45,15 @@ export default {
     },
     GetCat:  function(){
       let json = cats
-      let random_Nb1 = this.GetRandom();
-      let random_Nb2 = this.GetRandom();
+      let random_nb1 = this.GetRandom();
+      let random_nb2 = this.GetRandom();
 
-      while(random_Nb1 == random_nb2){
-          random_Nb2 = this.GetRandom();
+      while(random_nb1 == random_nb2){
+          random_nb2 = this.GetRandom();
       }
 
-      this.cat_left = json.images[random_Nb1];
-      this.cat_right = json.images[random_Nb2];
+      this.cat_left = json.images[random_nb1];
+      this.cat_right = json.images[random_nb2];
 
     },
     GetRandom:  function(){

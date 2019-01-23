@@ -4,18 +4,20 @@ const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const cats = require('./src/assets/Cats.json');
 const app = express();
-const publicRoot = '/Users/victorandre/Documents/CatMash/catmatsh/dist'
+const publicRoot = '/dist';
 
 let con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "root",
-    database:"catmash"
+    host: "us-cdbr-iron-east-03.cleardb.net",
+    user: "b06fcdea6ae955",
+    password: "696f5092",
+    database:"heroku_6bd658b7a5d6f32"
   });
   
 con.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
+    con.query('DROP TABLE Cat')
+    con.query('CREATE TABLE Cat (id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,url VARCHAR(250) NOT NULL,cat_id VARCHAR(250) NOT NULL,vote INT(100))')
     LoadData();
 });
 

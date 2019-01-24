@@ -5,7 +5,7 @@ const app = express();
 var mongoose = require('mongoose');
 const urlmongo = process.env.MONGODB_URI || "mongodb://localhost:27017/CatMash";
 const port = process.env.PORT || 8000;
-const publicRoot = '/dist'
+const publicRoot = './dist'
 
 mongoose.connect(urlmongo);
  

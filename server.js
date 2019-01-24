@@ -3,7 +3,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 var mongoose = require('mongoose');
-const urlmongo = "mongodb://localhost:27017/CatMash";
+const urlmongo = process.env.MONGODB_URI || "mongodb://localhost:27017/CatMash";
+const port = process.env.PORT || 8000;
 
 mongoose.connect(urlmongo);
  
@@ -62,4 +63,4 @@ app.get('/api/GetStatistic',async function(req, res) {
       });
 });
 
-app.listen(8000);
+app.listen(port);

@@ -24,6 +24,10 @@ let cat = mongoose.model('cats', catSchema);
 
 app.use(bodyParser.json())
 
+app.get("/", (req, res, next) => {  
+    res.sendFile("index.html", { root: "/dist" })
+})
+
 app.post('/api/Vote',async function(req, res) {
     console.log("record "+req.body.id);
     await cat.findOne({ id: req.body.id})

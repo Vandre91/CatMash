@@ -3,7 +3,7 @@
     <br>
     <h3 class="h3">The cutest cat</h3>
     <div class="row">
-        <div class="col-md-3 col-sm-6" v-for="i in this.data" :key="i">
+        <div class="col-md-3 col-sm-6" v-for="i in this.data">
             <div class="product-grid">
                 <div class="product-image">
                     <a href="#">

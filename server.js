@@ -5,6 +5,7 @@ const app = express();
 var mongoose = require('mongoose');
 const urlmongo = process.env.MONGODB_URI || "mongodb://localhost:27017/CatMash";
 const port = process.env.PORT || 8000;
+const publicRoot = '/dist'
 
 mongoose.connect(urlmongo);
  
@@ -23,9 +24,10 @@ let catSchema = mongoose.Schema({
 let cat = mongoose.model('cats', catSchema);
 
 app.use(bodyParser.json())
+app.use(express.static(publicRoot))
 
 app.get("/", (req, res, next) => {  
-    res.sendFile("index.html", { root: "/dist" })
+    res.sendFile("index.html", { root: publicRoot })
 })
 
 app.post('/api/Vote',async function(req, res) {

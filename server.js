@@ -2,7 +2,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-var mongoose = require('mongoose');
+const cors = require('cors');
+const mongoose = require('mongoose');
 const urlmongo = process.env.MONGODB_URI || "mongodb://localhost:27017/CatMash";
 const port = process.env.PORT || 8000;
 
@@ -22,7 +23,8 @@ let catSchema = mongoose.Schema({
  
 let cat = mongoose.model('cats', catSchema);
 
-app.use(bodyParser.json())
+app.use(bodyParser.json());
+app.use(cors());
 
 app.post('/api/Vote',async function(req, res) {
     console.log("record "+req.body.id);

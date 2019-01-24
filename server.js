@@ -31,11 +31,9 @@ app.get("/", (req, res, next) => {
 })
 
 app.post('/api/Vote',async function(req, res) {
-    console.log("record "+req.body.id);
     await cat.findOne({ id: req.body.id})
       .then((data) => {
             res.status(200);
-            console.log("data "+data);
             if(data != null){
                 console.log("data Not Null ");
                 cat.updateOne({"vote": parseInt(data.vote)},{$set: {"vote": parseInt(data.vote+1)}})
@@ -43,15 +41,13 @@ app.post('/api/Vote',async function(req, res) {
             }
             else{
                 const newCat = new cat(req.body);
-                newCat.vote = 1
-                console.log("data not find "+newCat);
+                newCat.vote = 1;
                 newCat.save()
                 .then(e => console.log(e));
             }
             
         })
       .catch((error) => {
-        console.log("data error "+error);
         res.status(500);
       });
     
@@ -61,10 +57,8 @@ app.post('/api/Vote',async function(req, res) {
 
 app.get('/api/GetStatistic',async function(req, res) {
     await cat.find({}).sort({vote: -1}).then((data) => {
-        console.log("data true "+data);
         res.send(data);
       }).catch((error) => {
-          console.log("data error ");
           res.status(500);
       });
 });

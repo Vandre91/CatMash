@@ -34,7 +34,7 @@ export default {
     Vote: function(e){
 
       let data = e
-      axios.post("https://back-catmash.herokuapp.com/api/Vote", data)    
+      axios.post("/api/Vote", data)    
       .then((response) => {    
           console.log("Vote !")    
       })    

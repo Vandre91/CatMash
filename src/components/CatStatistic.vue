@@ -37,7 +37,7 @@ export default {
     },
     methods: {
       GetAllCats: function(){
-        axios.get("https://back-catmash.herokuapp.com/api/GetStatistic")    
+        axios.get("/api/GetStatistic")    
         .then((response) => {        
             this.data = response.data;
         })    
